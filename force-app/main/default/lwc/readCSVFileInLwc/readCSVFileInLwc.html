@@ -1,0 +1,32 @@
+<template>
+    <lightning-card icon-name="custom:custom19" title='Read CSV File n LWC'>
+        <div style="margin-left: 3%">
+            <lightning-file-upload accept={acceptedFormats} label="Attach receipt" multiple="multiple"
+                onuploadfinished={handleUploadFinished} record-id={recordId}></lightning-file-upload>
+        </div>
+
+        <div if:true={error}>
+            {error}
+        </div><br />
+
+        <div if:true={data}>
+            <lightning-datatable columns={columns} data={data} hide-checkbox-column="true"
+                key-field="Id"></lightning-datatable>
+        </div>
+    </lightning-card>
+
+    <lightning-card if:true={uploadedFiles.length} icon-name="custom:custom19" title="Uploaded Files">
+        <ul>
+            <template for:each={uploadedFiles} for:item="file">
+                <li key={file.documentId}>{file.name}</li>
+            </template>
+
+
+            <template if:true={showButton}>
+                <div style="margin-top: 1rem">
+                    <lightning-button label="Process Files" onclick={handleProcessFiles}></lightning-button>
+                </div>
+            </template>
+        </ul>
+    </lightning-card>
+</template>

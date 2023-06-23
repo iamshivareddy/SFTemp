@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="Upload CSV Files">
+        <lightning-file-upload
+            label="Upload CSV Files"
+            name="fileUploader"
+            accept=".csv"
+            multiple
+            onuploadfinished={handleUploadFinished}>
+        </lightning-file-upload>
+        <lightning-button
+            label="Read Files"
+            variant="brand"
+            onclick={handleReadFiles}>
+        </lightning-button>
+    </lightning-card>
+    <template if:true={fileData}>
+        <lightning-card title="CSV File Data">
+            <template for:each={fileData} for:item="file">
+                <div key={file.fileName} class="file-data">
+                    <h3>{file.fileName}</h3>
+                    <template for:each={file.records} for:item="record">
+                        <p key={record}>{record}</p>
+                    </template>
+                    <lightning-button
+                        label="Add Records to Account"
+                        variant="brand"
+                        onclick={handleAddRecords}>
+                    </lightning-button>
+                </div>
+            </template>
+        </lightning-card>
+    </template>
+</template>

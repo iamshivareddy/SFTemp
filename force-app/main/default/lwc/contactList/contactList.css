@@ -1,0 +1,15 @@
+.contact {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .contact:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .contact-name {
+    font-weight: bold;
+  }

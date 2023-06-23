@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Contacts">
+      <lightning-button variant="brand" label={buttonLabel} title="Show Contacts"
+        onclick={handleShowContacts}></lightning-button>
+      <template if:true={showContacts}>
+        <template for:each={contacts} for:item="contact">
+          <div key={contact.Id} class="contact" onclick={handleContactClick} data-contact-id={contact.Id}>
+            <p class="contact-name"> Name : {contact.Name}</p>
+            <p>Country : {contact.MailingCountry}</p>
+          </div>
+        </template>
+      </template>
+
+      
+    </lightning-card>
+    
+  </template>

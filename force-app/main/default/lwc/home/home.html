@@ -1,0 +1,24 @@
+<template>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <lightning-card title="Home">
+                <c-contact-list oncontactselect={handleContactSelect}></c-contact-list>
+            </lightning-card>
+        </div>
+        <div class="slds-col">
+            <template if:true={showSelectedContact}>
+                <lightning-card title="Selected Contact">
+                    <div class="slds-clearfix">
+                        <div class="slds-float_left">
+                            <p>Your Contact Details</p>
+                            <p>Name: {selectedContact.Name}</p>
+                            <p>Phone: {selectedContact.Phone}</p>
+                            <p>Department: {selectedContact.Department}</p>
+                        </div>
+                    </div>
+                </lightning-card>
+            </template>
+        </div>
+
+    </div>
+</template>

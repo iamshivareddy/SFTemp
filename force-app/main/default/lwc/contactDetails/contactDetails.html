@@ -1,0 +1,13 @@
+<template>
+    <template if:true={selectedContact}>
+      <div>
+        <h2>{selectedContact.Name}</h2>
+        <p>Email: {selectedContact.Email}</p>
+        <p>Phone: {selectedContact.Phone}</p>
+        <!-- Add additional contact details here -->
+      </div>
+    </template>
+    <template if:false={selectedContact}>
+      <div>Please select a contact</div>
+    </template>
+  </template>
